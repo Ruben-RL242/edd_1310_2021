@@ -1,5 +1,6 @@
 from arrays import Array
 
+
 algo=Array(10)
 print(algo.get_item(6363))
 algo.set_item(555,3)
