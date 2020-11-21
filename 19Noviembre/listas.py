@@ -4,7 +4,7 @@ class Nodo:
         self.siguiente = siguiente
 
 class LinkedList:
-    def __init__( self ): # haskjdhasjkdhasjh aksjdh
+    def __init__( self ):
         self.__head = None
 
     def is_empty( self ):
@@ -57,5 +57,43 @@ class LinkedList:
         if posicion == None :
             dato=self.tail().data
         else:
-            pass
+            curr_node = self.__head
+            while contador != posicion and curr_node.siguiente != None:
+                curr_node = curr_node.siguiente
+                contador = contador + 1
+            if(contador==posicion):
+                dato = curr_node.data
+            else:
+                dato="posicion no existe en la lista"
         return dato
+
+    #Agregar antes de la primer coincidiencia, si no encuentra la referencia no hace la inserccion.
+    def add_before(self,reference_value,value):
+        nuevo= Nodo(value)
+        curr_node=self.__head
+        while curr_node.data != reference_value and curr_node.siguiente != None: # aqui se busca el nodo que se va a utilizar como referencia
+            curr_new=curr_node
+            curr_node= curr_node.siguiente
+        if curr_node.data == reference_value and curr_node.data != self.__head.data:
+            curr_new.siguiente=nuevo
+            curr_new.siguiente.siguiente=curr_node
+        else:
+            if curr_node.data == reference_value:
+                self.__head=nuevo
+                nuevo.siguiente=curr_node
+
+    #Agregar después de la referencia
+    def add_after(self,reference_value,value):
+        nuevo= Nodo(value)
+        curr_node=self.__head
+        while curr_node.data != reference_value and curr_node.siguiente != None:#aqui se busca el nodo que se va a utilizar como referencia
+            curr_node= curr_node.siguiente
+            curr_new= curr_node.siguiente
+        if curr_node.data == reference_value and curr_node.data != self.__head.data:
+            curr_node.siguiente=nuevo
+            curr_node.siguiente.siguiente=curr_new
+        else:
+            if curr_node.data == reference_value:
+                curr_new = curr_node.siguiente
+                curr_node.siguiente=nuevo
+                curr_node.siguiente.siguiente=curr_new
