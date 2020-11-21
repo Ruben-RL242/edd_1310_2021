@@ -60,7 +60,7 @@ class LinkedList:
             curr_node = self.__head
             while contador != posicion and curr_node.siguiente != None:
                 curr_node = curr_node.siguiente
-                contador = contador + 1
+                contador += 1
             if(contador==posicion):
                 dato = curr_node.data
             else:
