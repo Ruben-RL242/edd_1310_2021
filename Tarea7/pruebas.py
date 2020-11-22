@@ -37,6 +37,12 @@ l.remove_from_tail(10)
 print(f"el numero de elementos de la lista L son {l.get_size()}")
 l.transversal()
 
+print("\n---------- se intenta remover un valor que no esta en la lista")
+print("l.remove_from_head(646874614)")
+l.remove_from_head(646874614)
+print("l.remove_from_head(0)")
+l.remove_from_head(0)
+
 print("\n---------get_size")
 print(f"el numero de elementos de la lista L son {l.get_size()}")
 l.transversal()
