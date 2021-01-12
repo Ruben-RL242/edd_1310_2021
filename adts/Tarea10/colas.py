@@ -51,6 +51,7 @@ class BoundedPriorityQueue:
                     self.__size-=1
                     return nivel.dequeue()
         else:
+            print("no hay nadie en el barco")
             print("=======================El barco ha sido evacuacion por completo========================")
 
     def to_string(self):
