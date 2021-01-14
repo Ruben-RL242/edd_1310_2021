@@ -16,7 +16,7 @@ main()
 
 print("2.-Hacer un contador regresivo con recursión.")
 def printRev(n):
-    if n > 0:
+    if n >= 0:
         time.sleep(1)
         print(f"\t{n}")
         printRev(n-1)
